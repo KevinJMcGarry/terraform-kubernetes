@@ -1,0 +1,8 @@
+/popnoise-kops-priv-test03/staging/data/
+/popnoise-kops-priv-test03/tools/
+/popnoise-kops-priv-test03/staging/kubernetes.tf
+*.tfstate
+*.tfstate.backup
+*.terraform
+terraform.tfvars
+
