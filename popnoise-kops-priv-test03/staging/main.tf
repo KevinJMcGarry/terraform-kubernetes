@@ -47,6 +47,7 @@ module "subnet_pair" {
 # terraform import aws_route53_zone.popularnoise-com Z2NXJ40RLXM0QB
 
 # note - terraform destroy will not delete your root zone or sub-domain zone
+# if the root zone was created manually first
 
 resource "aws_route53_zone" "eureka-software" {
   name = "eureka.software."
@@ -73,7 +74,7 @@ resource "aws_route53_record" "k8s-virginia-eureka-software-ns" {
 
 # bucket for storing KOPS cluster state info
 resource "aws_s3_bucket" "state_store" {
-  bucket        = "${var.name}-state"
+  bucket        = "${var.name}-terraform-state-store"
   acl           = "private"
   force_destroy = true
 
@@ -82,7 +83,7 @@ resource "aws_s3_bucket" "state_store" {
   }
 
   tags {
-    Name        = "${var.name}-${var.env}-kops-state-store"
+    Name        = "${var.name}-${var.env}-terraform-state-store"
     Infra       = "${var.name}"
     Environment = "${var.env}"
     Terraformed = "true"

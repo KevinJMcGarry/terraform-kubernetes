@@ -1,10 +1,10 @@
 variable "AWS_REGION" {
-  default = "us-east-2"
+  default = "us-west-2"
 }
 
-# default = "eureka-terraform"
 variable "aws_profile" {
-	default = "terraform-kmcgarry"
+	#default = "terraform-kmcgarry"
+	default = "eureka-terraform"
 }
 
 variable "AMIS" {
